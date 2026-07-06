@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artisanal Food Exchange</title>
+    <!-- Google Fonts: Inter & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js CDN for Producer Dashboard Analytics -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- 1. Dedicated Login Page Screen -->
+    <div id="login-screen" class="login-screen">
+        <div class="login-container">
+            <div class="login-header">
+                <i class="fa-solid fa-leaf login-logo-icon"></i>
+                <h1>Artisanal Food <span class="accent-text">Exchange</span></h1>
+                <p>Savor the Craft. Support Local. Live Sustainably.</p>
+            </div>
+
+            <div class="login-cards">
+                <!-- Consumer Card -->
+                <div class="login-card">
+                    <div class="card-icon-header bg-emerald-light text-emerald">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                    </div>
+                    <h2>Consumer Portal</h2>
+                    <p>Browse fresh local goods, order once or schedule recurring subscriptions.</p>
+                    
+                    <div class="form-group" style="margin-top: 1.5rem; text-align: left;">
+                        <label for="login-consumer-select">Select Profile</label>
+                        <select id="login-consumer-select" style="width: 100%;">
+                            <option value="user_1">Manoj (New Delhi)</option>
+                            <option value="user_2">Ritika (Dehradun)</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn btn-primary login-btn" onclick="performLogin('consumer')">
+                        Login as Consumer <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Producer Card -->
+                <div class="login-card">
+                    <div class="card-icon-header bg-amber-light text-amber">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h2>Producer Dashboard</h2>
+                    <p>Manage product listings, track sales metrics, and analyze subscription trends.</p>
+                    
+                    <div class="form-group" style="margin-top: 1.5rem; text-align: left;">
+                        <label for="login-producer-select">Select Farm/Producer</label>
+                        <select id="login-producer-select" style="width: 100%;">
+                            <option value="prod_1">Himachal Mountain Farms (Shimla)</option>
+                            <option value="prod_2">Ganga Valley Dairy (Rishikesh)</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn btn-primary login-btn bg-amber" onclick="performLogin('producer')">
+                        Login as Producer <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Main Application Screen (Hidden by default) -->
+    <div id="app-screen" class="app-screen d-none">
+        <!-- Top Premium Navigation Bar -->
+        <header class="app-header">
+            <div class="header-container">
+                <a href="#" class="brand" id="nav-brand">
+                    <i class="fa-solid fa-leaf brand-icon"></i>
+                    <span class="brand-text">Artisanal Food <span class="accent-text">Exchange</span></span>
+                </a>
+                
+                <nav class="main-nav">
+                    <button class="nav-link active" id="btn-nav-market" onclick="switchTab('market')">
+                        <i class="fa-solid fa-store"></i> Marketplace
+                    </button>
+                    <button class="nav-link" id="btn-nav-portal" onclick="switchTab('portal')">
+                        <i class="fa-solid fa-user-gear"></i> Consumer Portal
+                    </button>
+                    <button class="nav-link" id="btn-nav-producer" onclick="switchTab('producer')">
+                        <i class="fa-solid fa-chart-line"></i> Producer Dashboard
+                    </button>
+                </nav>
+
+                <div class="user-profile-header">
+                    <span class="user-avatar-text"><i class="fa-solid fa-user-circle"></i> <strong id="logged-user-name">Manoj</strong></span>
+                    <button class="btn btn-secondary btn-logout" onclick="performLogout()"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+                </div>
+            </div>
+        </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Geolocation Simulated Coordinates Bar -->
+        <div class="simulation-banner" id="sim-banner">
+            <span id="sim-banner-text">
+                <i class="fa-solid fa-location-crosshairs text-amber"></i> 
+                Logged in as <strong>Alice Sharma</strong>. Location: <strong>New Delhi</strong> (28.6139° N, 77.2090° E)
+            </span>
+        </div>
+
+        <!-- 1. MARKETPLACE TAB -->
+        <section id="tab-market" class="content-tab">
+            <div class="market-hero">
+                <h1>Savor the Craft of Local Artisans</h1>
+                <p>Connecting conscious consumers with sustainable, small-batch food producers.</p>
+            </div>
+
+            <!-- Filter and Search controls -->
+            <div class="control-panel">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" id="search-input" placeholder="Search wildflower honey, goat cheese, apples..." oninput="fetchProducts()">
+                </div>
+                
+                <div class="geo-filter-box">
+                    <div class="geo-header">
+                        <span><i class="fa-solid fa-route text-emerald"></i> Filter by Distance</span>
+                        <span class="range-value" id="range-val-display">500 km</span>
+                    </div>
+                    <input type="range" id="geo-range" min="10" max="1000" value="500" step="10" oninput="updateRangeLabel(this.value)" onchange="fetchProducts()">
+                </div>
+            </div>
+
+            <!-- Categories -->
+            <div class="category-tabs" id="category-bar">
+                <button class="cat-btn active" onclick="filterCategory(this, '')">All Items</button>
+                <button class="cat-btn" onclick="filterCategory(this, 'Honey & Sweeteners')">Honey & Sweeteners</button>
+                <button class="cat-btn" onclick="filterCategory(this, 'Dairy & Cheese')">Dairy & Cheese</button>
+                <button class="cat-btn" onclick="filterCategory(this, 'Fresh Produce')">Fresh Produce</button>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="product-grid" id="product-list">
+                <!-- Dynamically loaded products go here -->
+            </div>
+        </section>
+
+        <!-- 2. CONSUMER PORTAL (My Subscriptions & Orders) -->
+        <section id="tab-portal" class="content-tab d-none">
+            <div class="portal-grid">
+                <!-- Subscriptions Column -->
+                <div class="portal-section">
+                    <div class="section-title">
+                        <h2><i class="fa-solid fa-repeat text-amber"></i> My Delivery Subscriptions</h2>
+                        <span class="tag-badge bg-amber">Recurring deliveries</span>
+                    </div>
+                    <div class="subscription-list" id="subscription-list">
+                        <!-- Loaded dynamically -->
+                    </div>
+                </div>
+
+                <!-- Order History Column -->
+                <div class="portal-section">
+                    <div class="section-title">
+                        <h2><i class="fa-solid fa-clock-rotate-left text-emerald"></i> Order History</h2>
+                        <span class="tag-badge bg-emerald">Past purchases</span>
+                    </div>
+                    <div class="order-history" id="order-history-list">
+                        <!-- Loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. PRODUCER DASHBOARD -->
+        <section id="tab-producer" class="content-tab d-none">
+            <!-- Analytics Summary Row -->
+            <div class="metrics-row">
+                <div class="metric-card">
+                    <div class="metric-icon bg-emerald-light text-emerald">
+                        <i class="fa-solid fa-indian-rupee-sign"></i>
+                    </div>
+                    <div class="metric-details">
+                        <h3 id="stat-revenue">₹0.00</h3>
+                        <p>Total Revenue</p>
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon bg-blue-light text-blue">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                    </div>
+                    <div class="metric-details">
+                        <h3 id="stat-orders">0</h3>
+                        <p>Total Orders</p>
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon bg-amber-light text-amber">
+                        <i class="fa-solid fa-user-check"></i>
+                    </div>
+                    <div class="metric-details">
+                        <h3 id="stat-subscriptions">0</h3>
+                        <p>Active Subscriptions</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Row -->
+            <div class="charts-row">
+                <div class="chart-container">
+                    <h3>Revenue & Sales Trend</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <h3>Top Selling Products</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="productChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Manage Listings Area -->
+            <div class="dashboard-listings-section">
+                <div class="section-header">
+                    <h2><i class="fa-solid fa-list-check text-cyan"></i> Active Product Listings</h2>
+                    <button class="btn btn-primary" onclick="openAddProductModal()">
+                        <i class="fa-solid fa-plus"></i> Add New Product
+                    </button>
+                </div>
+                
+                <div class="producer-product-grid" id="producer-product-list">
+                    <!-- Dynamic active listings for this producer -->
+                </div>
+            </div>
+        </section>
+    </main>
+    </div>
+
+    <!-- PRODUCT DETAIL MODAL -->
+    <div class="modal d-none" id="product-detail-modal">
+        <div class="modal-backdrop" onclick="closeProductModal()"></div>
+        <div class="modal-content">
+            <button class="modal-close-btn" onclick="closeProductModal()"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-grid" id="modal-product-detail-body">
+                <!-- Populated dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ADD PRODUCT MODAL (PRODUCERS ONLY) -->
+    <div class="modal d-none" id="add-product-modal">
+        <div class="modal-backdrop" onclick="closeAddProductModal()"></div>
+        <div class="modal-content form-modal">
+            <button class="modal-close-btn" onclick="closeAddProductModal()"><i class="fa-solid fa-xmark"></i></button>
+            <h2>Add Artisanal Product Listing</h2>
+            <form id="add-product-form" onsubmit="submitNewProduct(event)">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="p-name">Product Name</label>
+                        <input type="text" id="p-name" required placeholder="e.g. Organic Raspberry Jam">
+                    </div>
+                    <div class="form-group">
+                        <label for="p-category">Category</label>
+                        <select id="p-category" required>
+                            <option value="Honey & Sweeteners">Honey & Sweeteners</option>
+                            <option value="Dairy & Cheese">Dairy & Cheese</option>
+                            <option value="Fresh Produce">Fresh Produce</option>
+                            <option value="Baked Goods">Baked Goods</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="p-price">Price (₹)</label>
+                        <input type="number" id="p-price" min="1" step="0.01" required placeholder="e.g. 350">
+                    </div>
+                    <div class="form-group">
+                        <label for="p-unit">Unit / Size</label>
+                        <input type="text" id="p-unit" required placeholder="e.g. 300g jar, 1 Litre">
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="p-desc">Product Description</label>
+                        <textarea id="p-desc" rows="3" required placeholder="Describe the crafting process, flavor profile, and story..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="p-origin">Detailed Origin</label>
+                        <input type="text" id="p-origin" required placeholder="e.g. Kullu Valley Orchards">
+                    </div>
+                    <div class="form-group">
+                        <label for="p-stock">Initial Stock Quantity</label>
+                        <input type="number" id="p-stock" min="1" required placeholder="e.g. 25">
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="p-image">Image URL</label>
+                        <input type="url" id="p-image" required placeholder="Paste a direct image link from Unsplash, etc.">
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="p-ingredients">Ingredients (comma-separated list)</label>
+                        <input type="text" id="p-ingredients" required placeholder="e.g. Organic Raspberries, Cane Sugar, Fruit Pectin">
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeAddProductModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Create Listing</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast-notification" class="toast d-none">
+        <i class="fa-solid fa-circle-check toast-icon"></i>
+        <span id="toast-message">Action successful!</span>
+    </div>
+
+    <!-- Script Entry -->
+    <script src="app.js"></script>
+</body>
+</html>
