@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artisanal Food Exchange</title>
+    <!-- Google Fonts: Inter & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js CDN for Producer Dashboard Analytics -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- 1. Dedicated Storytelling Landing Page Screen -->
+    <!-- 1. Dedicated Storytelling Landing Page Screen (UK Platform Rebrand) -->
+    <div id="landing-screen" class="landing-screen">
+        <!-- Floating Organic Cartoon Background Stickers -->
+        <div class="bg-sticker sticker-1"><i class="fa-solid fa-apple-whole"></i></div>
+        <div class="bg-sticker sticker-2"><i class="fa-solid fa-carrot"></i></div>
+        <div class="bg-sticker sticker-3"><i class="fa-solid fa-lemon"></i></div>
+        <div class="bg-sticker sticker-4"><i class="fa-solid fa-pepper-hot"></i></div>
+        <div class="bg-sticker sticker-5"><i class="fa-solid fa-seedling"></i></div>
+        <div class="bg-sticker sticker-6"><i class="fa-solid fa-leaf"></i></div>
+        <div class="bg-sticker sticker-7"><i class="fa-solid fa-wheat-awn"></i></div>
+        <div class="bg-sticker sticker-8"><i class="fa-solid fa-cloud"></i></div>
+        <div class="bg-sticker sticker-9"><i class="fa-solid fa-cheese"></i></div>
+        <div class="bg-sticker sticker-10"><i class="fa-solid fa-egg"></i></div>
+        <div class="bg-sticker sticker-11"><i class="fa-solid fa-cow"></i></div>
+        <div class="bg-sticker sticker-12"><i class="fa-solid fa-tree"></i></div>
+        <div class="bg-sticker sticker-13"><i class="fa-solid fa-apple-whole"></i></div>
+        <div class="bg-sticker sticker-14"><i class="fa-solid fa-carrot"></i></div>
+
+        <!-- Minimalist transparent-to-frost Nav -->
+        <nav class="landing-nav">
+            <div class="landing-nav-container">
+                <a href="#" class="brand">
+                    <i class="fa-solid fa-leaf brand-icon text-emerald animate-pulse"></i>
+                    <span class="brand-text">Artisanal <span class="accent-text">Food Exchange</span></span>
+                </a>
+                <div class="landing-nav-actions">
+                    <a href="#about-section" class="landing-nav-link-item" onclick="scrollToSection(event, 'about-section')">About Us</a>
+                    <a href="#mission-section" class="landing-nav-link-item" onclick="scrollToSection(event, 'mission-section')">Our Mission</a>
+                    <button class="btn btn-outline motion-btn" onclick="navigateToLogin()"><i class="fa-solid fa-user"></i> My Account </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Video Section -->
+        <section class="hero-section">
+            <div class="hero-container">
+                <div class="hero-text-col fade-slide-up" style="--order: 1;">
+                    <div class="badge-row">
+                        <span class="badge badge-primary"><i class="fa-solid fa-hands-holding-child"></i> Community Food</span>
+                        <span class="badge badge-accent"><i class="fa-solid fa-seedling"></i> Local Growing</span>
+                    </div>
+                    <h1>Connecting Food Growers & Providers Across the Area</h1>
+                    <p>Shape the way we view, grow and use food. Rebuilding local supply networks to make our communities sustainable, reduce food waste, and deliver fresh produce directly where it is needed most.</p>
+                    <div class="hero-ctas">
+                        <button class="btn btn-primary btn-lg motion-btn" onclick="navigateToLogin()"><i class="fa-solid fa-right-to-bracket"></i> Enter Platform</button>
+                        <button class="btn btn-secondary btn-lg motion-btn" onclick="navigateToLogin('consumer')"><i class="fa-solid fa-store"></i> Browse Listings</button>
+                    </div>
+                </div>
+                
+                <!-- Loop Video Intro Player -->
+                <div class="hero-collage-col fade-slide-up" style="--order: 2;">
+                    <div class="video-mockup-wrapper">
+                        <video class="hero-video-player" src="intro-video.mp4" autoplay loop muted playsinline></video>
+                        <div class="video-overlay-badge">
+                            <i class="fa-solid fa-circle-play text-emerald"></i> Intro Video
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Intro Copy Block Section -->
+        <section id="about-section" class="intro-description-section fade-slide-up" style="--order: 3;">
+            <div class="section-sticker sticker-about-left"><i class="fa-solid fa-leaf"></i></div>
+            <div class="section-sticker sticker-about-right"><i class="fa-solid fa-apple-whole"></i></div>
+            
+            <div class="section-container">
+                <div class="description-grid">
+                    <div class="desc-card main-focus">
+                        <p class="highlight-p">With the increase in demand of community food organisations, it is important, now more than ever, to shape the way we view, grow and use food. That is why the online Food Exchange Platform was developed; so that as a community, we are able to become more sustainable.</p>
+                        <p>We aim to reduce food waste and simplify access to fresh food, helping community food organisations to receive the supplies they need to support the communities they serve.</p>
+                    </div>
+                    <div class="desc-card border-left">
+                        <h2>Who We Are</h2>
+                        <p>The Food Exchange Platform was envisioned to address how food is viewed and used. Connecting businesses, organisations, and individuals across local regions.</p>
+                        <p>Our activities connect local growers and allotment holders with local food providers and food banks to build food security from the ground up, reducing shipping footprint and food miles.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Mission Section -->
+        <section id="mission-section" class="values-section fade-slide-up" style="--order: 4;">
+            <div class="section-sticker sticker-mission-left"><i class="fa-solid fa-carrot"></i></div>
+            <div class="section-sticker sticker-mission-right"><i class="fa-solid fa-wheat-awn"></i></div>
+            
+            <div class="section-header">
+                <h2>Our Mission</h2>
+                <p>Built specifically to improve and support the use of fresh food. Our primary aims are:</p>
+            </div>
+            
+            <div class="values-container">
+                <div class="value-item">
+                    <i class="fa-solid fa-trash-can-slash value-icon text-emerald"></i>
+                    <h3>Reduce Food Waste</h3>
+                    <p>Reduce fresh food waste by minimising unsuitable food donations and redirecting surplus garden harvests.</p>
+                </div>
+                <div class="value-item">
+                    <i class="fa-solid fa-comments value-icon text-amber"></i>
+                    <h3>Community Voice</h3>
+                    <p>Give local communities a voice in what food is provided through local community distribution centers.</p>
+                </div>
+                <div class="value-item">
+                    <i class="fa-solid fa-sliders value-icon text-cyan"></i>
+                    <h3>Improve Consistency</h3>
+                    <p>Improve consistency and shelf life of fresh seasonal produce available in local supply centers.</p>
+                </div>
+                <div class="value-item">
+                    <i class="fa-solid fa-hand-holding-heart value-icon text-emerald"></i>
+                    <h3>Simplify Donations</h3>
+                    <p>Simplify the way in which fresh food is shared and improve the effective local use of donations.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Landing Page Copyright Footer -->
+        <footer class="landing-footer">
+            <div class="footer-container">
+                <div class="footer-brand">
+                    <i class="fa-solid fa-leaf text-emerald"></i> Food Exchange <span class="accent-text">Platform</span>
+                </div>
+                <p class="footer-copy">© 2026 Food Exchange Platform. All rights reserved. Connecting local growers, allotment holders, and community food distribution organizations. Supporting local sustainability and reducing carbon miles.</p>
+            </div>
+        </footer>
+    </div>
+    </div>
+
+    <!-- 2. Dedicated Separate Login Page Screen (Hidden by default) -->
+    <div id="login-screen" class="login-screen d-none">
+        <div class="login-container fade-slide-up" style="--order: 1;">
+            <button class="back-home-btn" onclick="navigateToLanding()">
+                <i class="fa-solid fa-arrow-left"></i> Back to Home
+            </button>
+            
+            <div class="login-header">
+                <i class="fa-solid fa-leaf login-logo-icon text-emerald animate-pulse"></i>
+                <h1>Access the <span class="accent-text">Exchange</span></h1>
+                <p>Select your profile card below to enter the secure portal</p>
+            </div>
+
+            <div class="login-cards-container">
+                <!-- Consumer Login Column -->
+                <div class="role-column">
+                    <h3 class="col-title"><i class="fa-solid fa-basket-shopping text-emerald"></i> Consumers</h3>
+                    <div class="role-cards-grid" id="consumer-cards-grid">
+                        <!-- Loaded dynamically from database -->
+                    </div>
+                    <button class="btn btn-outline btn-sm add-profile-btn" onclick="openAddProfileModal('CONSUMER')" style="width: 100%; margin-top: 1.5rem; border-style: dashed; border-color: rgba(31,124,82,0.4); color: var(--primary);">
+                        <i class="fa-solid fa-circle-plus"></i> Add Customer Profile
+                    </button>
+                </div>
+
+                <!-- Producer Login Column -->
+                <div class="role-column">
+                    <h3 class="col-title"><i class="fa-solid fa-tractor text-amber"></i> Producers</h3>
+                    <div class="role-cards-grid" id="producer-cards-grid">
+                        <!-- Loaded dynamically from database -->
+                    </div>
+                    <button class="btn btn-outline btn-sm add-profile-btn" onclick="openAddProfileModal('PRODUCER')" style="width: 100%; margin-top: 1.5rem; border-style: dashed; border-color: rgba(217,119,6,0.4); color: var(--accent-hover);">
+                        <i class="fa-solid fa-circle-plus"></i> Add Producer Firm
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Main Application Screen (Hidden by default) -->
+    <div id="app-screen" class="app-screen d-none">
+        <!-- Top Premium Navigation Bar -->
+        <header class="app-header">
+            <div class="header-container">
+                <a href="#" class="brand" id="nav-brand">
+                    <i class="fa-solid fa-leaf brand-icon"></i>
+                    <span class="brand-text">Artisanal Food <span class="accent-text">Exchange</span></span>
+                </a>
+                
+                <nav class="main-nav">
+                    <button class="nav-link active" id="btn-nav-market" onclick="switchTab('market')">
+                        <i class="fa-solid fa-store"></i> Marketplace
+                    </button>
+                    <button class="nav-link" id="btn-nav-portal" onclick="switchTab('portal')">
+                        <i class="fa-solid fa-user-gear"></i> Consumer Portal
+                    </button>
+                    <button class="nav-link" id="btn-nav-producer" onclick="switchTab('producer')">
+                        <i class="fa-solid fa-chart-line"></i> Producer Dashboard
+                    </button>
+                </nav>
+
+                <div class="user-profile-header">
+                    <span class="user-avatar-text"><i class="fa-solid fa-user-circle"></i> <strong id="logged-user-name">Manoj</strong></span>
+                    <button class="btn btn-secondary btn-logout" onclick="performLogout()"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+                </div>
+            </div>
+        </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Geolocation Simulated Coordinates Bar -->
+        <div class="simulation-banner" id="sim-banner">
+            <span id="sim-banner-text">
+                <i class="fa-solid fa-location-crosshairs text-amber"></i> 
+                Logged in as <strong>Alice Sharma</strong>. Location: <strong>New Delhi</strong> (28.6139° N, 77.2090° E)
+            </span>
+        </div>
+
+        <!-- 1. MARKETPLACE TAB -->
+        <section id="tab-market" class="content-tab">
+            <!-- Marketplace Motion Ticker Frame -->
+            <div class="market-motion-ticker">
+                <div class="ticker-title"><i class="fa-solid fa-bolt text-emerald animate-pulse"></i> Live Exchange Feed</div>
+                <div class="ticker-track-wrapper">
+                    <div class="ticker-track">
+                        <div class="ticker-item"><i class="fa-solid fa-basket-shopping text-emerald"></i> Manoj ordered Wildflower Forest Honey <span class="ticker-badge">5.8 km</span></div>
+                        <div class="ticker-item"><i class="fa-solid fa-circle-check text-success"></i> Himachal Farms added 80kg Delicious Apples</div>
+                        <div class="ticker-item"><i class="fa-solid fa-heart text-danger"></i> Ritika subscribed to A2 Cow Ghee</div>
+                        <div class="ticker-item"><i class="fa-solid fa-location-dot text-amber"></i> Ganga Valley Dairy delivered Herb Goat Cheese to Dehradun</div>
+                        <div class="ticker-item"><i class="fa-solid fa-star text-warning"></i> Manoj rated wild honey ⭐ 5.0</div>
+                        <!-- Duplicates for seamless loop -->
+                        <div class="ticker-item"><i class="fa-solid fa-basket-shopping text-emerald"></i> Manoj ordered Wildflower Honey <span class="ticker-badge">5.8 km</span></div>
+                        <div class="ticker-item"><i class="fa-solid fa-circle-check text-success"></i> Himachal Farms added 80kg Delicious Apples</div>
+                        <div class="ticker-item"><i class="fa-solid fa-heart text-danger"></i> Ritika subscribed to A2 Cow Ghee</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="market-hero">
+                <h1>Savor the Craft of Local Artisans</h1>
+                <p>Connecting conscious consumers with sustainable, small-batch food producers.</p>
+            </div>
+
+            <!-- Filter and Search controls -->
+            <div class="control-panel">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" id="search-input" placeholder="Search wildflower honey, goat cheese, apples..." oninput="fetchProducts()">
+                </div>
+                
+                <div class="geo-filter-box">
+                    <div class="geo-header">
+                        <span><i class="fa-solid fa-route text-emerald"></i> Filter by Distance</span>
+                        <span class="range-value" id="range-val-display">500 km</span>
+                    </div>
+                    <input type="range" id="geo-range" min="10" max="1000" value="500" step="10" oninput="updateRangeLabel(this.value)" onchange="fetchProducts()">
+                </div>
+            </div>
+
+            <!-- Categories -->
+            <div class="category-tabs" id="category-bar">
+                <button class="cat-btn active" onclick="filterCategory(this, '')">All Items</button>
+                <button class="cat-btn" onclick="filterCategory(this, 'Honey & Sweeteners')">Honey & Sweeteners</button>
+                <button class="cat-btn" onclick="filterCategory(this, 'Dairy & Cheese')">Dairy & Cheese</button>
+                <button class="cat-btn" onclick="filterCategory(this, 'Fresh Produce')">Fresh Produce</button>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="product-grid" id="product-list">
+                <!-- Dynamically loaded products go here -->
+            </div>
+        </section>
+
+        <!-- 2. CONSUMER PORTAL (My Subscriptions & Orders) -->
+        <section id="tab-portal" class="content-tab d-none">
+            <div class="portal-grid">
+                <!-- Subscriptions Column -->
+                <div class="portal-section">
+                    <div class="section-title">
+                        <h2><i class="fa-solid fa-repeat text-amber"></i> My Delivery Subscriptions</h2>
+                        <span class="tag-badge bg-amber">Recurring deliveries</span>
+                    </div>
+                    <div class="subscription-list" id="subscription-list">
+                        <!-- Loaded dynamically -->
+                    </div>
+                </div>
+
+                <!-- Order History Column -->
+                <div class="portal-section">
+                    <div class="section-title">
+                        <h2><i class="fa-solid fa-clock-rotate-left text-emerald"></i> Order History</h2>
+                        <span class="tag-badge bg-emerald">Past purchases</span>
+                    </div>
+                    <div class="order-history" id="order-history-list">
+                        <!-- Loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. PRODUCER DASHBOARD -->
+        <section id="tab-producer" class="content-tab d-none">
+            <!-- Analytics Summary Row -->
+            <div class="metrics-row">
+                <div class="metric-card">
+                    <div class="metric-icon bg-emerald-light text-emerald">
+                        <i class="fa-solid fa-indian-rupee-sign"></i>
+                    </div>
+                    <div class="metric-details">
+                        <h3 id="stat-revenue">₹0.00</h3>
+                        <p>Total Revenue</p>
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon bg-blue-light text-blue">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                    </div>
+                    <div class="metric-details">
+                        <h3 id="stat-orders">0</h3>
+                        <p>Total Orders</p>
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon bg-amber-light text-amber">
+                        <i class="fa-solid fa-user-check"></i>
+                    </div>
+                    <div class="metric-details">
+                        <h3 id="stat-subscriptions">0</h3>
+                        <p>Active Subscriptions</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Row -->
+            <div class="charts-row">
+                <div class="chart-container">
+                    <h3>Revenue & Sales Trend</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <h3>Top Selling Products</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="productChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Manage Listings Area -->
+            <div class="dashboard-listings-section">
+                <div class="listings-header">
+                    <h2><i class="fa-solid fa-list-check text-cyan"></i> Active Product Listings</h2>
+                    <button class="btn btn-primary" onclick="openAddProductModal()">
+                        <i class="fa-solid fa-plus"></i> Add New Product
+                    </button>
+                </div>
+                
+                <div class="producer-product-grid" id="producer-product-list">
+                    <!-- Dynamic active listings for this producer -->
+                </div>
+            </div>
+        </section>
+    </main>
+    </div>
+
+    <!-- PRODUCT DETAIL MODAL -->
+    <div class="modal d-none" id="product-detail-modal">
+        <div class="modal-backdrop" onclick="closeProductModal()"></div>
+        <div class="modal-content">
+            <button class="modal-close-btn" onclick="closeProductModal()"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-grid" id="modal-product-detail-body">
+                <!-- Populated dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ADD PRODUCT MODAL (PRODUCERS ONLY) -->
+    <div class="modal d-none" id="add-product-modal">
+        <div class="modal-backdrop" onclick="closeAddProductModal()"></div>
+        <div class="modal-content form-modal">
+            <button class="modal-close-btn" onclick="closeAddProductModal()"><i class="fa-solid fa-xmark"></i></button>
+            <h2>Add Artisanal Product Listing</h2>
+            <form id="add-product-form" onsubmit="submitNewProduct(event)">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="p-name">Product Name</label>
+                        <input type="text" id="p-name" required placeholder="e.g. Organic Raspberry Jam">
+                    </div>
+                    <div class="form-group">
+                        <label for="p-category">Category</label>
+                        <select id="p-category" required>
+                            <option value="Honey & Sweeteners">Honey & Sweeteners</option>
+                            <option value="Dairy & Cheese">Dairy & Cheese</option>
+                            <option value="Fresh Produce">Fresh Produce</option>
+                            <option value="Baked Goods">Baked Goods</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="p-price">Price (₹)</label>
+                        <input type="number" id="p-price" min="1" step="0.01" required placeholder="e.g. 350">
+                    </div>
+                    <div class="form-group">
+                        <label for="p-unit">Unit / Size</label>
+                        <input type="text" id="p-unit" required placeholder="e.g. 300g jar, 1 Litre">
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="p-desc">Product Description</label>
+                        <textarea id="p-desc" rows="3" required placeholder="Describe the crafting process, flavor profile, and story..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="p-origin">Detailed Origin</label>
+                        <input type="text" id="p-origin" required placeholder="e.g. Kullu Valley Orchards">
+                    </div>
+                    <div class="form-group">
+                        <label for="p-stock">Initial Stock Quantity</label>
+                        <input type="number" id="p-stock" min="1" required placeholder="e.g. 25">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Product Image</label>
+                        <div class="image-upload-wrapper">
+                            <div class="image-upload-dropzone" onclick="triggerFileInput()" id="dropzone-area">
+                                <i class="fa-solid fa-cloud-arrow-up upload-icon text-emerald"></i>
+                                <span>Drag & drop or <strong class="text-emerald">click to browse</strong></span>
+                                <p class="upload-tip">Supports PNG, JPG, JPEG up to 2MB</p>
+                                <input type="file" id="p-file-input" accept="image/*" style="display: none;" onchange="handleFileSelect(event)">
+                            </div>
+                            <div class="image-preview-container d-none" id="image-preview-box">
+                                <img src="" id="upload-preview-img" alt="Upload Preview">
+                                <button type="button" class="btn-remove-img" onclick="clearImageSelection()"><i class="fa-solid fa-trash"></i> Remove Image</button>
+                            </div>
+                        </div>
+                        <input type="hidden" id="p-image" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="p-ingredients">Ingredients (comma-separated list)</label>
+                        <input type="text" id="p-ingredients" required placeholder="e.g. Organic Raspberries, Cane Sugar, Fruit Pectin">
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeAddProductModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Create Listing</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- REGISTER PROFILE MODAL -->
+    <div class="modal d-none" id="add-profile-modal">
+        <div class="modal-backdrop" onclick="closeAddProfileModal()"></div>
+        <div class="modal-content form-modal">
+            <button class="modal-close-btn" onclick="closeAddProfileModal()"><i class="fa-solid fa-xmark"></i></button>
+            <h2 id="profile-modal-title">Add Customer Profile</h2>
+            <form id="add-profile-form" onsubmit="submitNewProfile(event)">
+                <input type="hidden" id="prof-role" value="CONSUMER">
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label for="prof-name" id="prof-name-label">Customer Name</label>
+                        <input type="text" id="prof-name" required placeholder="e.g. Manoj Sharma">
+                    </div>
+                    <div class="form-group">
+                        <label for="prof-city">City / Address</label>
+                        <input type="text" id="prof-city" required placeholder="e.g. Dehradun">
+                    </div>
+                    <div class="form-group">
+                        <label for="prof-email">Email Address</label>
+                        <input type="email" id="prof-email" required placeholder="e.g. manoj@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="prof-lat">Latitude</label>
+                        <input type="number" id="prof-lat" step="0.0001" min="-90" max="90" required placeholder="e.g. 30.3165">
+                    </div>
+                    <div class="form-group">
+                        <label for="prof-lon">Longitude</label>
+                        <input type="number" id="prof-lon" step="0.0001" min="-180" max="180" required placeholder="e.g. 78.0322">
+                    </div>
+                </div>
+                <div style="margin-top: 1rem; text-align: right;">
+                    <button type="button" class="btn btn-secondary" onclick="prefillCoordinates()" style="padding: 0.4rem 0.8rem; font-size: 0.8rem; border-color: var(--border);">
+                        <i class="fa-solid fa-location-dot text-amber"></i> Suggest Lat / Long
+                    </button>
+                </div>
+                <div class="form-actions" style="margin-top: 1.5rem;">
+                    <button type="button" class="btn btn-secondary" onclick="closeAddProfileModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Profile</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast-notification" class="toast d-none">
+        <i class="fa-solid fa-circle-check toast-icon"></i>
+        <span id="toast-message">Action successful!</span>
+    </div>
+
+    <!-- Script Entry -->
+    <script src="app.js"></script>
+</body>
+</html>
