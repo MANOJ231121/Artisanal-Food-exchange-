@@ -158,4 +158,7 @@ The frontend is a single-page app served as static resources from `src/main/reso
 
 ## License
 
-No license specified.
+## License
+## License
+
+This project is for educational and practice purposes only.No license has been specified for this project.
