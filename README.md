@@ -1,6 +1,7 @@
 # Artisanal Food Exchange
 
-A full-stack marketplace application connecting local artisanal food producers with consumers. Consumers can discover nearby producers, browse and order handcrafted food products, subscribe to recurring deliveries, and leave reviews. Producers get a dashboard with sales analytics.
+A full-stack marketplace application connecting local artisanal food producers with consumers. Consumers can discover nearby producers, browse and order handcrafted food products, subscribe to recurring deliveries, and leave reviews. Producers get a dashboard with sales analytics.\
+This is the deployed link to see how it look like :- artisanal-food-app2311-byfcf7dzcwcwbte8.centralindia-01.azurewebsites.net
 
 Built with **Spring Boot 3 (Java 17)** on the backend, **MongoDB** for persistence, and a vanilla **HTML/CSS/JS** frontend (Chart.js for analytics charts).
 
